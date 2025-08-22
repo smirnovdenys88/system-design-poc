@@ -1,5 +1,6 @@
 # System Design POC: Gaming Platform & Game Provider A Integration
-![Screenshot 2025-08-21 183536.png](..%2F..%2FUsers%2FDenys-PK%2FPictures%2FScreenshots%2FScreenshot%202025-08-21%20183536.png)
+<img width="1336" height="807" alt="Screenshot 2025-08-21 183536" src="https://github.com/user-attachments/assets/e54dad13-6f97-4cb0-a37f-d2ce7b829297" />
+
 
 This project is a **Proof of Concept (POC)** demonstrating a secure and scalable integration protocol between a **Gaming Platform** and a **Game Provider** using **JWT (JSON Web Tokens)** with **RSA asymmetric encryption**.  
 The solution addresses key use cases for player authentication, access control, and dynamic content updates.
