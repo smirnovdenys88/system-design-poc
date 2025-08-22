@@ -1,4 +1,5 @@
 # System Design POC: Gaming Platform & Game Provider A Integration
+![Screenshot 2025-08-21 183536.png](..%2F..%2FUsers%2FDenys-PK%2FPictures%2FScreenshots%2FScreenshot%202025-08-21%20183536.png)
 
 This project is a **Proof of Concept (POC)** demonstrating a secure and scalable integration protocol between a **Gaming Platform** and a **Game Provider** using **JWT (JSON Web Tokens)** with **RSA asymmetric encryption**.  
 The solution addresses key use cases for player authentication, access control, and dynamic content updates.
@@ -13,8 +14,8 @@ The solution addresses key use cases for player authentication, access control, 
 - **Authorization**  
   The Game Provider validates the JWT and checks the payload to ensure the player is authorized to access the specific game requested.
 
-- **Access Denial**  
-  The system automatically denies access for non-authenticated calls, invalid tokens, or unauthorized games.
+- **Access Denied**  
+  The system automatically denied access for non-authenticated calls, invalid tokens, or unauthorized games.
 
 - **Dynamic Content**  
   The Game Provider can dynamically add new games to the Gaming Platform's catalog via a dedicated API endpoint.
