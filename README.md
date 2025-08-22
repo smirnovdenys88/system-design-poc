@@ -1,10 +1,29 @@
 # System Design POC: Gaming Platform & Game Provider A Integration
-<img width="1336" height="807" alt="Screenshot 2025-08-21 183536" src="https://github.com/user-attachments/assets/e54dad13-6f97-4cb0-a37f-d2ce7b829297" />
-
 
 This project is a **Proof of Concept (POC)** demonstrating a secure and scalable integration protocol between a **Gaming Platform** and a **Game Provider** using **JWT (JSON Web Tokens)** with **RSA asymmetric encryption**.  
 The solution addresses key use cases for player authentication, access control, and dynamic content updates.
 
+<img width="1336" height="807" alt="Screenshot 2025-08-21 183536" src="https://github.com/user-attachments/assets/e54dad13-6f97-4cb0-a37f-d2ce7b829297" />
+
+## Login flow for an authenticated player (Use Case 1) is as follows:
+- **Player Authentication on Gaming Platform:** A player first authenticates on the Gaming Platform's website by logging in.
+- **Game Selection:** The player selects a game from the catalog. The game is hosted on our sites.
+JWT Generation: The Gaming Platform generates a JSON Web Token (JWT). This token is signed with an RSA private key known only to the Gaming Platform. The JWT's payload contains essential player information (e.g., player ID), the specific game ID, and a list of all games the player is authorized to access on the platform.
+```
+{
+"sub": "Joda",
+"platform_id": "platform_a",
+"game_access": [10, 11, 12],
+"iss": "https://acme.org",
+"iat": 1755855584,
+"exp": 1755855884,
+"jti": "d4d46dd0-2ae4-419a-8881-6902fb6783f3"
+}
+```
+- **Redirection to Game Provider A:** The Gaming Platform redirects the player to Game Provider A's website. The generated JWT is included in the URL for this redirection.
+- **JWT Validation:** Game Provider A's backend receives the request and extracts the JWT. It then validates the token's signature using the corresponding public key.
+- **Authorization Check:** After successful validation, Game Provider A's backend checks the JWT's payload to verify that the requested game is present in the list of games authorized for that player and platform.
+- **Access Granted:** If all checks pass, the player is successfully logged into the game and can begin playing.
 ---
 
 ## 🔑 Key Features
