@@ -8,7 +8,7 @@ The solution addresses key use cases for player authentication, access control, 
 ## Login flow for an authenticated player (Use Case 1) is as follows:
 - **Player Authentication on Gaming Platform:** A player first authenticates on the Gaming Platform's website by logging in.
 - **Game Selection:** The player selects a game from the catalog. The game is hosted on our sites.
-JWT Generation: The Gaming Platform generates a JSON Web Token (JWT). This token is signed with an RSA private key known only to the Gaming Platform. The JWT's payload contains essential player information (e.g., player ID), the specific game ID, and a list of all games the player is authorized to access on the platform.
+- **JWT Generation:** The Gaming Platform generates a JSON Web Token (JWT). This token is signed with an RSA private key known only to the Gaming Platform. The JWT's payload contains essential player information (e.g., player ID), the specific game ID, and a list of all games the player is authorized to access on the platform.
 ```
 {
 "sub": "Joda",
