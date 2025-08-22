@@ -80,7 +80,7 @@ Use curl to test the API endpoints and verify the behavior of the system.
 "password": "password"
 }'
 ```
-- **Expected Result:**
+**Expected Result:**
 
 - HTTP Status 200 OK.
 
@@ -115,7 +115,7 @@ curl -X POST --location 'http://localhost:8082/games/provide' \
 "platformId": "platform_a"
 }'
 ```
-- **Expected Result:** HTTP Status 200 OK. The gaming-platform service's console will show that a new game has been added.
+**Expected Result:** HTTP Status 200 OK. The gaming-platform service's console will show that a new game has been added.
 
 - **Action B (Get New Token):** The old JWT token does not include the newly added game. You must get a new token.
 ```
@@ -138,4 +138,4 @@ curl --location 'http://localhost:8082/games/play/103' \
 
 - **Action:** Get a fresh JWT, wait for over 5 minutes, then try to access a game with the now-expired token.
 
-- **Expected Result:** HTTP Status 401 Unauthorized with an error indicating the token has expired.
+**Expected Result:** HTTP Status 401 Unauthorized with an error indicating the token has expired.
