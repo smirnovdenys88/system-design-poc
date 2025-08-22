@@ -2,8 +2,8 @@ version: '3.8'
 services:
   gaming-platform:
     build:
-      context: ./game-platform
-      dockerfile: src/main/docker/Dockerfile.jvm
+      context: .
+      dockerfile: game-platform/src/main/docker/Dockerfile.jvm
     ports:
       - "8080:8080"
     environment:
@@ -13,10 +13,10 @@ services:
 
   game-provider-a:
     build:
-      context: ./game-provider-a
-      dockerfile: src/main/docker/Dockerfile.jvm
+      context: .
+      dockerfile: game-provider-a/src/main/docker/Dockerfile.jvm
     ports:
-      - "8081:8081"
+      - "8082:8081"
     environment:
       - QUARKUS_PROFILE=dev
     volumes:
