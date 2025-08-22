@@ -27,7 +27,7 @@ The solution addresses key use cases for player authentication, access control, 
 
 The project consists of two independent **Quarkus microservices** and a `docker-compose.yml` file to orchestrate their deployment.
 
-- `gaming-platform/`  
+- `game-platform/`  
   Service representing the Gaming Platform. It handles player login, JWT generation, and management of the platform's game catalog.
 
 - `game-provider-a/`  
@@ -58,7 +58,7 @@ The project consists of two independent **Quarkus microservices** and a `docker-
 
 ### Steps
 
-##Build and Run with Docker Compose:
+## Build and Run with Docker Compose:
 ```
 docker-compose up --build
 ```
@@ -94,14 +94,14 @@ Use curl to test the API endpoints and verify the behavior of the system.
 ```
 curl --location 'http://localhost:8082/games/play/103' \
 --header 'Authorization: Bearer invalid_token_example'
-Expected Result: HTTP Status 401 Unauthorized.
 ```
+**Expected Result:** HTTP Status 401 Unauthorized.
 - **Action B (Forbidden Game):** Use a valid JWT to access a game that is not yet in the allowed list for the platform (e.g., game 103).
 ```
 curl --location 'http://localhost:8082/games/play/103' \
 --header 'Authorization: Bearer <YOUR_JWT_TOKEN>'
 ```
-Expected Result: HTTP Status 403 Forbidden. The message will state that the game is not allowed for the platform.
+**Expected Result:** HTTP Status 403 Forbidden. The message will state that the game is not allowed for the platform.
 
 ### 3. Use Case 3: Dynamic Game List Expansion and Access
 **Goal:** Verify the process of adding a new game dynamically and then accessing it.
@@ -131,7 +131,7 @@ curl -X POST --location 'http://localhost:8081/auth/login' \
 curl --location 'http://localhost:8082/games/play/103' \
 --header 'Authorization: Bearer <YOUR_NEW_JWT_TOKEN>'
 ```
-Expected Result: HTTP Status 200 OK. The response confirms successful access to the game.
+**Expected Result:** HTTP Status 200 OK. The response confirms successful access to the game.
 
 ### 4. Verifying Token Expiration
 **Goal:** Confirm the token becomes invalid after 5 minutes.
