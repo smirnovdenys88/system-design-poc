@@ -56,6 +56,12 @@ The project consists of two independent **Quarkus microservices** and a `docker-
 
 ### Steps
 
+##Build and Run with Docker Compose:
+```
+docker-compose up --build
+```
+**The Gaming Platform will run on http://localhost:8081 and Game Provider A on http://localhost:8082.**
+
 ## 🧪 Testing Scenarios
 
 Use curl to test the API endpoints and verify the behavior of the system.
