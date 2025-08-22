@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  gaming-platform:
+    build:
+      context: ./game-platform
+      dockerfile: src/main/docker/Dockerfile.jvm
+    ports:
+      - "8080:8080"
+    environment:
+      - QUARKUS_PROFILE=dev
+    volumes:
+      - ./game-platform/src/main/resources/privateKey.pem:/home/quarkus/privateKey.pem
+
+  game-provider-a:
+    build:
+      context: ./game-provider-a
+      dockerfile: src/main/docker/Dockerfile.jvm
+    ports:
+      - "8081:8081"
+    environment:
+      - QUARKUS_PROFILE=dev
+    volumes:
+      - ./game-provider-a/src/main/resources/publicKey.pem:/home/quarkus/publicKey.pem
+    depends_on:
+      - gaming-platform
